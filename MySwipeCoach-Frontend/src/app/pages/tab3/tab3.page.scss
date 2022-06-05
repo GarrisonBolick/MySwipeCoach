@@ -1,0 +1,36 @@
+#contacts {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+
+    ion-card {
+        flex: 0 0 auto;
+        padding: 8px 4px;
+        width: 100px;
+        border-radius: 0;
+
+        ion-avatar {
+            margin: 0 auto;
+        }
+
+        ion-item {
+            height: 20px;
+
+            ion-label {
+                position: absolute;
+                top: 0px;
+                font-size: small;
+                width: 100%;
+            }
+        }
+    }
+}
+
+#contacts::-webkit-scrollbar {
+    display: none;
+}
+
+#contacts {
+    position: sticky;
+    top: 0;
+}

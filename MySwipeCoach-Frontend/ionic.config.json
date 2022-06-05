@@ -1,0 +1,7 @@
+{
+  "name": "MySwipeCoach-Frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,76 @@
+ion-toolbar{
+    height: 80px;
+    display: flex;
+
+    div {
+        padding-left: 50%;
+
+        img {
+            height: 76px;
+            transform: translateX(-50%);
+            vertical-align: middle;
+        }
+    }
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.profile-description {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    opacity: 0;
+}
+
+.profile {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--msc-color-yellow);
+    ion-img {
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    .profile-summary {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(var(--msc-color-yellow-rgb), 0.8);
+    }
+
+    // @media(prefers-color-scheme: light) {
+    //     ion-img {
+    //         background-color: var(--msc-color-yellow);
+    //     }
+
+    //     .summary-card {
+    //         background-color: rgba(var(--msc-color-yellow-rgb), 0.5);
+    //     }
+    // }
+
+    // @media(prefers-color-scheme: dark) {
+    //     ion-img {
+    //         background-color: black;
+    //     }
+
+    //     .summary-card {
+    //         background-color: rgba(0, 0, 0, 0.5);
+    //     }
+    // }
+}
+
+#swipe-label {
+    position: fixed;
+    opacity: 0;
+    font-weight: bolder;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    letter-spacing: 2px;
+}

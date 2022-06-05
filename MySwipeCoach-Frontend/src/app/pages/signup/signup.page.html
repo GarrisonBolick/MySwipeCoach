@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sign Up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="signUp()" [formGroup]="credentials">
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Confirm Password</ion-label>
+      <ion-input type="password" formControlName="confirmPassword"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-segment formControlName="userType">
+        <ion-segment-button value="Client">
+          <ion-label>Client</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="Coach">
+          <ion-label>Coach</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-item>
+
+    <ion-button type="submit" class="ion-margin" expand="block">Register</ion-button>
+
+    <ion-text class="ion-margin-horizontal">Already have an account? <a routerLink="/login">Sign in.</a></ion-text>
+  </form>
+</ion-content>

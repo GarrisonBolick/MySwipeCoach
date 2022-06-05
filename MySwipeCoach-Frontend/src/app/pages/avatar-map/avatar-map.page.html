@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>avatar-map</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollY]="!profileOpened">
+  <div class="content-container">
+    <div class="avatar-map" *ngIf="profiles">
+      <ion-avatar class="avatar-bubble" *ngFor="let profile of profiles" (click)="openProfile(profile)">
+        <img [src]="profile.imageURL">
+      </ion-avatar>
+    </div>
+    <div #profileContainer class="profile-view-container" [class.open]="profileOpened">
+      <div #outerModal class="outer-modal" (click)="closeProfile()"></div>
+      <div #profileModal class="profile-modal" (transitionend)="onSwipeTransitionEnd($event)">
+        <app-profile-view #profileView [profile]="selectedProfile" class="profile-view"></app-profile-view>
+      </div>
+    </div>
+    <h1 #swipeLabel class="swipe-label"></h1>
+    <ion-fab *ngIf="profileOpened && !swiped" vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button translucent="true" (click)="closeProfile()">
+        <ion-icon name="close"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+</ion-content>

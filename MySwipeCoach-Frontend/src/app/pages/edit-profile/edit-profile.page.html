@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+    <ion-title>Edit Profile</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()">Save</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">First Name</ion-label>
+    <ion-input placeholder="First Name" [value]="profile.firstName" (input)="setfirstName($event.target.value)"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Last Name</ion-label>
+    <ion-input placeholder="Last Name" [value]="profile.lastName" (input)="setlastName($event.target.value)"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Gender</ion-label>
+    <ion-segment [value]="profile.gender" (ionChange)="setGender($event.target.value)">
+      <ion-segment-button value="Male">
+        <ion-label>Male</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Female">
+        <ion-label>Female</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Other">
+        <ion-label>Other</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Birthday</ion-label>
+    <ion-datetime [value]="profile.birthdate.getFullYear()" (ionChange)="setBirthdate($event.target.value)" displayFormat="MM/DD/YYYY" min="1900-01-01" max="2021-12-31" placeholder="MM/DD/YYYY"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">About</ion-label>
+    <ion-textarea [value]="profile.description" (input)="setDescription($event.target.value)" rows="6" placeholder="Enter description here..."></ion-textarea>
+  </ion-item>
+</ion-content>

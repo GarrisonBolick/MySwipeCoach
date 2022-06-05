@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-avatar id="profile-avatar" (click)="selectImageSource()">
+    <img [src]="profile?.imageURL">
+  </ion-avatar>
+
+  <ion-card (click)="editProfile()" button>
+    <ion-card-header>
+      <ion-card-title>{{profile?.firstName}} {{profile?.lastName}}</ion-card-title>
+      <ion-card-subtitle>{{profile?.gender}}, {{profile?.age}}</ion-card-subtitle>
+      <ion-icon class="edit-icon" name="pencil-outline"></ion-icon>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>{{profile?.description}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Meeting Preference</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-segment [value]="profile.meetingPreference" (ionChange)="editMeetingPreference($event.target.value)" color="success">
+        <ion-segment-button value="Remote">
+          <ion-label>Remote</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="In-person">
+          <ion-label>In-person</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="Either">
+          <ion-label>Either</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

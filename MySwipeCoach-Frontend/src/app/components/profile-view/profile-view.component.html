@@ -1,0 +1,16 @@
+<div #container class="profile-container">
+  <div class="profile-content">
+    <div class="profile-image" [style.background-image]="'url(' + profile?.imageURL + ')'">
+    </div>
+    <ion-card class="profile-description ion-no-margin">
+      <ion-card-header class="profile-description-header">
+        <ion-card-title>{{profile?.firstName}} {{profile?.lastName}}</ion-card-title>
+        <ion-card-subtitle>{{profile?.gender}}, {{profile?.age}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content class="profile-description-content">
+        {{profile?.description}}
+        {{profile?.description}}
+      </ion-card-content>
+    </ion-card>
+  </div>
+</div>

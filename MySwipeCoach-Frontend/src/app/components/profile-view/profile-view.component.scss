@@ -1,0 +1,42 @@
+.profile-container {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border: 2px solid gray;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: white;
+	box-shadow: -2px 2px 8px lightgray;
+  overflow-y: auto;
+
+  .profile-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+  
+    .profile-image {
+      width: 20rem;
+      max-width: 100%;
+      aspect-ratio: 1 / 1;
+      border: 1px solid black;
+      border-radius: 5px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .profile-description-header {
+      background-color: var(--msc-color-yellow);
+    }
+
+    .profile-description-content {
+      padding-top: 1rem;
+    }
+  }
+}

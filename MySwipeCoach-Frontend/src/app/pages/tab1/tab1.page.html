@@ -1,0 +1,35 @@
+<ion-header >
+  <ion-toolbar>
+    <div>
+      <img src="./assets/images/WordLogo2.png">
+    </div>
+  </ion-toolbar> 
+</ion-header>
+
+<ion-content scrollY="false">
+  <div class="profile" #profileDiv *ngFor="let profile of profiles">
+    <div class="profile-image" [ngStyle]="{'background-image': 'url(' + profile.imageURL + ')'}"></div>
+    <!-- <ion-img [src]="profile.imageURL" slot="fixed"></ion-img> -->
+
+    <div (transitionend)="descriptionTransitionEnd()">
+      <div class="profile-summary ion-no-margin">
+        <ion-card-header>
+          <ion-card-title>{{profile.firstName}} {{profile.lastName}}</ion-card-title>
+          <ion-card-subtitle>{{profile.gender}}, {{profile.age}}</ion-card-subtitle>
+        </ion-card-header>
+      </div>
+
+      <ion-card class="profile-description ion-no-margin">
+        <ion-card-header>
+          <ion-card-title>Description</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{profile.description}}
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+  <h1 id="swipe-label" #swipeLabel></h1>
+
+</ion-content>

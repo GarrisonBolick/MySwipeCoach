@@ -1,0 +1,90 @@
+:host {
+	--transition-speed: 0.5s;
+}
+
+.content-container {
+	width: 100%;
+	height: 100%;
+	background-color: lightgray;
+	background-image: url("https://www.nam.org/wp-content/uploads/2019/04/North-Carolina-1600x900.png");
+	background-size: calc(100% + 4em);
+	background-repeat: no-repeat;
+	background-position: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.avatar-map {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+	justify-items: center;
+}
+
+.avatar-bubble {
+	margin: 1rem;
+	border: 1px solid gray;
+}
+
+// Profile View (Default: Close)
+.profile-view-container {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	pointer-events: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: opacity var(--transition-speed);
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0);
+
+	.profile-view {
+		width: 30rem;
+		height: 40rem;
+		max-width: calc(100% - 4rem);
+		max-height: calc(100% - 4rem);
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		transition: top var(--transition-speed), transform var(--transition-speed);
+	}
+
+	.outer-modal {
+		position: absolute;
+		inset: 0;
+		background-color: rgba(0, 0, 0, 0.2);
+	}
+
+	.profile-modal {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+// Profile View Open
+.profile-view-container.open {
+	opacity: 1;
+	pointer-events: unset;
+
+	.profile-view {
+		transition: top var(--transition-speed), transform var(--transition-speed);
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+// Swipe Label
+.swipe-label {
+	position: absolute;
+	top: 0;
+	opacity: 0;
+	font-size: 2rem;
+	font-weight: bolder;
+	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+	letter-spacing: 2px;
+	pointer-events: none;
+}

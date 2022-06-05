@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Conversation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row class="message" *ngFor="let message of conversation?.messages">
+      <!-- Column 1 -->
+      <ion-col size="1">
+        <ion-avatar *ngIf="message.author.id != 0">
+          <img [src]="message.author.imageURL">
+        </ion-avatar>
+      </ion-col>
+      <!-- Column 2 -->
+      <ion-col>
+        <ion-label *ngIf="message.author.id != 0">
+          <div class="bubble bubble-secondary ion-float-start">
+            <ion-text>{{message.value}}</ion-text>
+          </div>
+        </ion-label>
+        <ion-label *ngIf="message.author.id == 0">
+          <div class="bubble bubble-primary ion-float-end">
+            <ion-text>{{message.value}}</ion-text>
+          </div>
+        </ion-label>
+      </ion-col>
+      <!-- Column 3 -->
+      <ion-col size="1">
+        <ion-avatar *ngIf="message.author.id == 0">
+          <img [src]="message.author.imageURL">
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<div id="message-input" slot="fixed">
+  <ion-textarea rows="1" autoGrow [(ngModel)]="messageInput"></ion-textarea>
+  <ion-button (click)="sendMessage()">Send</ion-button>
+</div>

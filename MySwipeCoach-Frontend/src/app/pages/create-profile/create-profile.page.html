@@ -1,0 +1,109 @@
+<ion-content>
+  <div id="WordLogoDiv">
+    <img id="WordLogo" src="./assets/images/WordLogo3.png">
+  </div>
+
+  <ion-slides pager="true">
+    <!-- Slide 1 -->
+    <ion-slide>
+      <ion-text>
+        <ion-avatar id="profile-avatar" (click)="selectImageSource()">
+          <img [src]="profile.imageURL">
+        </ion-avatar>
+        <h1>Add a profile picture!</h1>
+        <p>Click the button below to continue.</p>
+        
+        <ion-button (click)="next()" fill="outline">Next</ion-button>
+      </ion-text>
+
+      <div>
+        
+      </div>
+    </ion-slide>
+
+    <!-- Slide 2 -->
+    <ion-slide>
+      <ion-text>
+        <h1>Enter your Name Here:</h1>
+        <ion-item>
+          <ion-label position="stacked">First Name</ion-label>
+          <ion-input [(ngModel)]="profile.firstName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Last Name</ion-label>
+          <ion-input [(ngModel)]="profile.lastName"></ion-input>
+        </ion-item>
+
+        <ion-button (click)="next()" fill="outline">Next</ion-button>
+      </ion-text>
+    </ion-slide>
+
+    <!-- Slide 3 -->
+   <ion-slide>
+     <ion-text>
+       <h1>Gender</h1>
+
+       <ion-item>
+         <ion-segment [(ngModel)]="profile.gender">
+           <ion-segment-button value="Male">
+             <ion-label>Male</ion-label>
+           </ion-segment-button>
+           <ion-segment-button value="Female">
+             <ion-label>Female</ion-label>
+           </ion-segment-button>
+           <ion-segment-button value="Other">
+             <ion-label>Other</ion-label>
+           </ion-segment-button>
+         </ion-segment>
+       </ion-item>
+
+       <ion-button (click)="next()" fill="outline">Next</ion-button>
+     </ion-text>
+   </ion-slide>
+
+     <!-- Slide 4 -->
+    <ion-slide>
+      <ion-text>
+        <h1>Birthday</h1>
+      
+        <ion-item>
+          <ion-datetime (ionChange)="setBirthdate($event.target.value)" displayFormat="MM/DD/YYYY" min="1900-01-01" max="2021-12-31" placeholder="MM/DD/YYYY"></ion-datetime>
+        </ion-item>
+
+        <ion-button (click)="next()" fill="outline">Next</ion-button>
+      </ion-text>
+    </ion-slide>
+
+    <!-- Slide 5 -->
+    <ion-slide>
+      <ion-text>
+        <h1>Enter your Bio:</h1>
+        <ion-item>
+          <ion-textarea rows="6" cols="30" class="ion-padding-horizontal" placeholder="Enter Bio here..." [(ngModel)]="profile.description"></ion-textarea>
+        </ion-item>
+
+        <ion-button (click)="next()" fill="outline">Next</ion-button>
+      </ion-text>
+    </ion-slide>
+
+    <!-- Slide 6 -->
+    <ion-slide>
+      <ion-text>
+        <h1>Meeting Preference</h1>
+        <ion-segment [(ngModel)]="profile.meetingPreference" color="success">
+          <ion-segment-button value="Remote">
+            <ion-label>Remote</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="In-person">
+            <ion-label>In-person</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="Either">
+            <ion-label>Either</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+
+        <ion-button (click)="start()" fill="outline">Start</ion-button>
+      </ion-text>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
